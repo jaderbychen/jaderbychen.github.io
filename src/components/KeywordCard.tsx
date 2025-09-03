@@ -13,22 +13,22 @@ const KeywordCard = ({ title, content, delay = 0 }: KeywordCardProps) => {
 
   return (
     <Card 
-      className="group cursor-pointer overflow-hidden rounded-xl border-0 bg-gradient-card shadow-[0_2px_15px_hsl(var(--shadow-soft))] transition-all duration-300 hover:shadow-[0_6px_25px_hsl(var(--shadow-medium))] hover:scale-[1.02] h-full"
+      className="group cursor-pointer overflow-hidden rounded-2xl border-0 bg-gradient-card shadow-[0_2px_20px_hsl(var(--shadow-soft))] transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--shadow-medium))] hover:scale-[1.02]"
       style={{ animationDelay: `${delay}ms` }}
       onClick={() => setIsExpanded(!isExpanded)}
     >
-      <div className="p-4">
-        <div className="flex items-center justify-between mb-2">
-          <h3 className="text-sm font-semibold text-foreground leading-tight">{title}</h3>
-          <div className="flex-shrink-0 ml-2">
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-lg font-semibold text-foreground">{title}</h3>
+          <div className="flex-shrink-0 ml-4">
             {isExpanded ? (
               <ChevronDown 
-                size={16} 
+                size={20} 
                 className="text-muted-foreground transition-all duration-300 group-hover:text-foreground" 
               />
             ) : (
               <ChevronRight 
-                size={16} 
+                size={20} 
                 className="text-muted-foreground transition-all duration-300 group-hover:text-foreground" 
               />
             )}
@@ -37,10 +37,10 @@ const KeywordCard = ({ title, content, delay = 0 }: KeywordCardProps) => {
         
         <div 
           className={`overflow-hidden transition-all duration-500 ease-in-out ${
-            isExpanded ? "max-h-32 opacity-100" : "max-h-0 opacity-0"
+            isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <p className="text-xs text-muted-foreground leading-relaxed">{content}</p>
+          <p className="text-muted-foreground leading-relaxed">{content}</p>
         </div>
       </div>
     </Card>
