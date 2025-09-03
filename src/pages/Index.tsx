@@ -40,7 +40,7 @@ const Index = () => {
         <section className="mb-20">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Profile Image */}
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex flex-col items-center lg:items-start">
               <div className="relative group">
                 <div className="w-64 h-64 rounded-full overflow-hidden shadow-[0_20px_50px_hsl(var(--shadow-strong))] transition-transform duration-300 group-hover:scale-105">
                   <img 
@@ -51,6 +51,13 @@ const Index = () => {
                 </div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
+              
+              <Button asChild size="lg" className="rounded-full group mt-6">
+                <Link to="/blog" className="flex items-center gap-2">
+                  Read My Blog
+                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </div>
 
             {/* Keywords Cards */}
@@ -80,7 +87,7 @@ const Index = () => {
         <section className="mb-16">
           <div className="bg-surface-elevated rounded-3xl p-8 shadow-[0_20px_50px_hsl(var(--shadow-soft))]">
             <h2 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h2>
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid md:grid-cols-3 gap-6">
               {contacts.map((contact) => (
                 <a
                   key={contact.label}
@@ -95,13 +102,6 @@ const Index = () => {
                 </a>
               ))}
             </div>
-            
-            <Button asChild size="lg" className="rounded-full group">
-              <Link to="/blog" className="flex items-center gap-2">
-                Read My Blog
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </section>
       </main>
