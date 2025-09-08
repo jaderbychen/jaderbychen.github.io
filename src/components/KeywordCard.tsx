@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 
 interface KeywordCardProps {
   title: string;
-  content: string;
+  content: string[];
   delay?: number;
 }
 
@@ -40,7 +40,11 @@ const KeywordCard = ({ title, content, delay = 0 }: KeywordCardProps) => {
             isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <p className="text-muted-foreground leading-relaxed">{content}</p>
+          <div className="text-muted-foreground leading-relaxed space-y-3">
+            {content.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </div>
       </div>
     </Card>

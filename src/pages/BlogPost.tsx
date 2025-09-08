@@ -70,18 +70,42 @@ const BlogPost = () => {
                 {post.title}
               </h1>
               
-              <div 
-                className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-blockquote:text-muted-foreground prose-blockquote:border-l-primary/20"
-                dangerouslySetInnerHTML={{ 
-                  __html: post.content.replace(/\n/g, '<br />').replace(/#{1,6}\s/g, match => {
-                    const level = match.trim().length;
-                    const tag = `h${level}`;
-                    return `<${tag} class="text-${level === 1 ? '3xl' : level === 2 ? '2xl' : 'xl'} font-bold mt-8 mb-4">`;
-                  }).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                    .replace(/\*(.*?)\*/g, '<em>$1</em>')
-                    .replace(/---/g, '<hr class="my-8 border-border" />')
-                }}
-              />
+              <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-a:text-primary prose-blockquote:text-muted-foreground prose-blockquote:border-l-primary/20">
+                {post.content.map((item, index) => {
+                  if (item.type === 'text') {
+                    return (
+                      <div 
+                        key={index}
+                        dangerouslySetInnerHTML={{ 
+                          __html: item.content.replace(/\n/g, '<br />').replace(/#{1,6}\s/g, match => {
+                            const level = match.trim().length;
+                            const tag = `h${level}`;
+                            return `<${tag} class="text-${level === 1 ? '3xl' : level === 2 ? '2xl' : 'xl'} font-bold mt-8 mb-4">`;
+                          }).replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/---/g, '<hr class="my-8 border-border" />')
+                        }}
+                      />
+                    );
+                  } else if (item.type === 'image') {
+                    return (
+                      <div key={index} className="my-8">
+                        <img 
+                          src={item.content} 
+                          alt={item.alt || ''}
+                          className="w-full rounded-2xl shadow-lg"
+                        />
+                        {item.caption && (
+                          <p className="text-sm text-muted-foreground text-center mt-3 italic">
+                            {item.caption}
+                          </p>
+                        )}
+                      </div>
+                    );
+                  }
+                  return null;
+                })}
+              </div>
             </div>
           </article>
         </div>

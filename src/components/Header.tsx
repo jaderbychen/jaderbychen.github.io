@@ -1,4 +1,4 @@
-import { BookOpen } from "lucide-react";
+import { BookOpen, Code } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
@@ -13,20 +13,34 @@ const Header = () => {
             to="/" 
             className="text-2xl font-bold tracking-tight transition-colors hover:text-muted-foreground"
           >
-            Portfolio
+          Jade Chen
           </Link>
           
-          <Button
-            variant={location.pathname === "/blog" ? "default" : "ghost"}
-            size="sm"
-            asChild
-            className="rounded-full"
-          >
-            <Link to="/blog" className="flex items-center gap-2">
-              <BookOpen size={18} />
-              Blog
-            </Link>
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              variant={location.pathname === "/code" ? "default" : "ghost"}
+              size="sm"
+              asChild
+              className="rounded-full"
+            >
+              <Link to="/code" className="flex items-center gap-2">
+                <Code size={18} />
+                Code for Fun
+              </Link>
+            </Button>
+            
+            <Button
+              variant={location.pathname === "/blog" ? "default" : "ghost"}
+              size="sm"
+              asChild
+              className="rounded-full"
+            >
+              <Link to="/blog" className="flex items-center gap-2">
+                <BookOpen size={18} />
+                Blog
+              </Link>
+            </Button>
+          </div>
         </nav>
       </div>
     </header>

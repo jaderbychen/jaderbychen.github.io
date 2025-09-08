@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import { Mail, Github, Linkedin, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Mail, Github, Linkedin } from "lucide-react";
 import Header from "@/components/Header";
 import KeywordCard from "@/components/KeywordCard";
 import profileImage from "@/assets/profile-image.jpg";
@@ -8,27 +6,37 @@ import profileImage from "@/assets/profile-image.jpg";
 const Index = () => {
   const keywords = [
     {
-      title: "Frontend Development",
-      content: "Passionate about creating beautiful, responsive user interfaces using modern technologies like React, TypeScript, and Tailwind CSS. I focus on performance optimization and user experience."
+      title: "Corporate Efficiency Enthusiast",
+      content: [
+        "I graduated from the Chinese University of Hong Kong with a Bachelor's degree of Engineering in Financial Technology. I joined Goldman Sachs as an engineer in Global Banking and Markets Division, where I worked on various projects related to trading systems including building an internal platform to facilitate the trading of ETFs.",
+        "During this time, I realized that my true passion lies in corporate efficiency — creating solutions that improve workflows and process for both internal and external stakeholders. To pursue this path, I joined Bytedance's Lark division as a senior business analyst, focusing on promoting tools that drive organizational productivity at scale."
+      ]
     },
     {
-      title: "UI/UX Design",
-      content: "Believer in user-centered design principles. I create intuitive interfaces that solve real problems while maintaining aesthetic appeal and accessibility standards."
+      title: "Believer in Non-Zero Sum Game",
+      content: [
+        "I consider myself a believer in non-zero sum game. While trading system are intellectually challenging and fun at the same time, the nature of the work is fundamentally zero sum. Every gain comes at someone else's loss.",
+        "I wanted my work to generate broader, shared value. That conviction drove my decision to pursue roles where I could design solutions that make organizations more efficient, collaborative, and productive. For me, creating tools that help people achieve more or have more fun is the truest form of a non–zero-sum game."
+      ]
     },
     {
-      title: "Problem Solving",
-      content: "Analytical thinker who enjoys breaking down complex challenges into manageable solutions. I approach problems systematically and value clean, maintainable code."
+      title: "Passionate about Stand Up Paddling",
+      content: [
+        "I’ve been practicing stand-up paddleboarding for more than six years. Being on the water taught me how to navigate waves, adapt to shifting conditions, and make decisions under uncertain weather. It also forced me to disconnect from my phone and be fully present. These lessons in balance, resilience, and risk navigation continue to shape how I approach challenges in both work and life."
+      ]
     },
     {
-      title: "Continuous Learning",
-      content: "Technology evolves rapidly, and I'm committed to staying current with industry trends, best practices, and emerging tools that can improve development workflows."
+      title: "Sci‑Fi Fan",
+      content: ["I’m a lifelong sci‑fi fan and often draw inspiration from speculative worlds to reflect on the future of humanity and technology. Movies like Arrival shaped the way I think about zero‑sum versus non‑zero‑sum games, while Ted Chiang’s stories challenge me with their philosophical depth and exploration of human values.",
+        "My favorite sci‑fi game, Minds Beneath, pushes this further by asking: if human intelligence cannot match artificial intelligence, what if our own brains are used to train it? Technology evolves rapidly, and I'm committed to staying current with industry trends, best practices, and emerging tools that can improve development workflows."
+      ]
     }
   ];
 
   const contacts = [
-    { icon: Mail, label: "Email", value: "hello@example.com", href: "mailto:hello@example.com" },
-    { icon: Github, label: "GitHub", value: "github.com/username", href: "https://github.com/username" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/username", href: "https://linkedin.com/in/username" }
+    { icon: Mail, label: "Email", value: "yu.jade.chen@berkeley.edu", href: "mailto:yu.jade.chen@berkeley.edu" },
+    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/jaderbychen", href: "https://linkedin.com/in/jaderbychen" },
+    { icon: Github, label: "Github", value: "https://github.com/jaderbychen", href: "https://github.com/jaderbychen" }
   ];
 
   return (
@@ -37,8 +45,8 @@ const Index = () => {
       
       <main className="container mx-auto px-6 py-16">
         {/* Hero Section */}
-        <section className="mb-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <section className="mb-20 lg:ml-20">
+          <div className="flex items-center justify-center">
             {/* Profile Image */}
             <div className="flex flex-col items-center lg:items-start">
               <div className="relative group">
@@ -51,23 +59,16 @@ const Index = () => {
                 </div>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
-              
-              <Button asChild size="lg" className="rounded-full group mt-6">
-                <Link to="/blog" className="flex items-center gap-2">
-                  Read My Blog
-                  <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-                </Link>
-              </Button>
             </div>
 
             {/* Keywords Cards */}
-            <div className="space-y-4">
+            <div className="space-y-4 lg:ml-20">
               <div className="mb-8">
                 <h1 className="text-5xl font-bold text-foreground mb-4 tracking-tight">
-                  Hi, I'm <span className="text-primary">Alex</span>
+                  Hey there! <span className="text-primary"></span>
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  A passionate developer and designer creating meaningful digital experiences
+                  I'm Jade Chen, an MBA/MEng student at University of California, Berkeley. Welcome to my home page!
                 </p>
               </div>
               

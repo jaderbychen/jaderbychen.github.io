@@ -1,8 +1,8 @@
 import Header from "@/components/Header";
-import BlogCard from "@/components/BlogCard";
-import { blogPosts } from "@/data/blogData";
+import CodeCard from "@/components/CodeCard";
+import { codeProjects } from "@/data/codeData";
 
-const Blog = () => {
+const Code = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
@@ -10,23 +10,25 @@ const Blog = () => {
       <main className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-foreground mb-4 tracking-tight">
-            My Blog
+            Code for Fun
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Thoughts on development, design, and the intersection of technology and humanity
+            Personal projects for fun!
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post, index) => (
-            <BlogCard
-              key={post.id}
-              id={post.id}
-              title={post.title}
-              excerpt={post.excerpt}
-              coverImage={post.coverImage}
-              date={post.date}
+          {codeProjects.map((project, index) => (
+            <CodeCard
+              key={project.id}
+              id={project.id}
+              title={project.title}
+              description={project.description}
+              coverImage={project.coverImage}
+              date={project.date}
               delay={index * 100}
+              externalLink={project.externalLink}
+              technologies={project.technologies}
             />
           ))}
         </div>
@@ -35,4 +37,4 @@ const Blog = () => {
   );
 };
 
-export default Blog;
+export default Code;
