@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 
 interface BlogCardProps {
@@ -8,44 +7,32 @@ interface BlogCardProps {
   coverImage: string;
   date: string;
   delay?: number;
-  externalLink?: string;
+  externalLink: string;
 }
 
-const BlogCard = ({ id, title, excerpt, coverImage, date, delay = 0, externalLink }: BlogCardProps) => {
-  const cardContent = (
-    <>
-      <div className="aspect-video overflow-hidden rounded-t-2xl">
-        <img 
-          src={coverImage} 
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-          {title}
-        </h3>
-        <p className="text-muted-foreground leading-relaxed line-clamp-3">
-          {excerpt}
-        </p>
-      </div>
-    </>
-  );
-
+const BlogCard = ({ title, excerpt, coverImage, delay = 0, externalLink }: BlogCardProps) => {
   return (
     <Card 
       className="group overflow-hidden rounded-2xl border-0 bg-gradient-card shadow-[0_2px_20px_hsl(var(--shadow-soft))] transition-all duration-300 hover:shadow-[0_8px_30px_hsl(var(--shadow-medium))] hover:scale-[1.02] animate-fade-in-up"
       style={{ animationDelay: `${delay}ms` }}
     >
-      {externalLink ? (
-        <a href={externalLink} target="_blank" rel="noopener noreferrer" className="block">
-          {cardContent}
-        </a>
-      ) : (
-        <Link to={`/blog/${id}`} className="block">
-          {cardContent}
-        </Link>
-      )}
+      <a href={externalLink} target="_blank" rel="noopener noreferrer" className="block">
+        <div className="aspect-video overflow-hidden rounded-t-2xl">
+          <img 
+            src={coverImage} 
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        </div>
+        <div className="p-6">
+          <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+            {title}
+          </h3>
+          <p className="text-muted-foreground leading-relaxed line-clamp-3">
+            {excerpt}
+          </p>
+        </div>
+      </a>
     </Card>
   );
 };

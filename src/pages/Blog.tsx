@@ -27,6 +27,7 @@ const Blog = () => {
               coverImage={post.coverImage}
               date={post.date}
               delay={index * 100}
+              externalLink={post.externalLink}
             />
           ))}
         </div>
