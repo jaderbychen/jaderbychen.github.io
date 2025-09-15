@@ -44,14 +44,14 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-subtle">
       <Header />
       
-      <main className="container mx-auto px-6 py-16">
+      <main className="container mx-auto px-4 sm:px-6 py-16">
         {/* Hero Section */}
         <section className="mb-20 lg:ml-20">
           <div className="flex flex-col lg:flex-row items-center justify-center">
             {/* Profile Image */}
-            <div className="flex flex-col items-center lg:items-start mb-8 lg:mb-0">
+            <div className="flex flex-col items-center lg:items-start mb-6 lg:mb-0">
               <div className="relative group">
-                <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-[0_20px_50px_hsl(var(--shadow-strong))] transition-transform duration-300 group-hover:scale-105">
+                <div className="w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-[0_20px_50px_hsl(var(--shadow-strong))] transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src={profileImage} 
                     alt="Profile" 
@@ -64,16 +64,16 @@ const Index = () => {
 
             {/* Keywords Cards */}
             <div className="space-y-4 lg:ml-20 w-full lg:w-auto max-w-2xl">
-              <div className="mb-8 text-center lg:text-left">
-                <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight">
+              <div className="mb-6 lg:mb-8 text-center lg:text-left">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-3 lg:mb-4 tracking-tight">
                   Hey there! <span className="text-primary"></span>
                 </h1>
-                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed px-4 lg:px-0">
+                <p className="text-base sm:text-lg lg:text-xl text-muted-foreground leading-relaxed px-2 sm:px-4 lg:px-0">
                   I'm Jade Chen, an MBA/MEng student at University of California, Berkeley. Welcome to my home page!
                 </p>
               </div>
               
-              <div className="px-4 lg:px-0">
+              <div className="px-2 sm:px-4 lg:px-0">
                 {keywords.map((keyword, index) => (
                   <KeywordCard 
                     key={keyword.title}
@@ -88,20 +88,20 @@ const Index = () => {
         </section>
 
         {/* Contact Section */}
-        <section className="mb-16 px-4 lg:px-0">
-          <div className="bg-surface-elevated rounded-3xl p-6 lg:p-8 shadow-[0_20px_50px_hsl(var(--shadow-soft))]">
-            <h2 className="text-2xl font-semibold text-foreground mb-6 text-center lg:text-left">Get in Touch</h2>
-            <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
+        <section className="mb-16 px-2 sm:px-4 lg:px-0">
+          <div className="bg-surface-elevated rounded-3xl p-4 sm:p-6 lg:p-8 shadow-[0_20px_50px_hsl(var(--shadow-soft))]">
+            <h2 className="text-xl sm:text-2xl font-semibold text-foreground mb-4 sm:mb-6 text-center lg:text-left">Get in Touch</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
               {contacts.map((contact) => (
                 <a
                   key={contact.label}
                   href={contact.href}
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-surface-subtle hover:bg-accent transition-colors group"
+                  className="flex items-center gap-3 p-3 sm:p-4 rounded-2xl bg-surface-subtle hover:bg-accent transition-colors group"
                 >
-                  <contact.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                  <div>
-                    <p className="text-sm text-muted-foreground">{contact.label}</p>
-                    <p className="text-foreground font-medium text-sm lg:text-base">{contact.value}</p>
+                  <contact.icon size={18} className="text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm text-muted-foreground">{contact.label}</p>
+                    <p className="text-foreground font-medium text-xs sm:text-sm lg:text-base truncate">{contact.value}</p>
                   </div>
                 </a>
               ))}
