@@ -51,7 +51,7 @@ const Index = () => {
             {/* Profile Image */}
             <div className="flex flex-col items-center lg:items-start mb-8 lg:mb-0">
               <div className="relative group">
-                <div className="w-48 h-48 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-[0_20px_50px_hsl(var(--shadow-strong))] transition-transform duration-300 group-hover:scale-105">
+                <div className="w-56 h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden shadow-[0_20px_50px_hsl(var(--shadow-strong))] transition-transform duration-300 group-hover:scale-105">
                   <img 
                     src={profileImage} 
                     alt="Profile" 
@@ -63,33 +63,35 @@ const Index = () => {
             </div>
 
             {/* Keywords Cards */}
-            <div className="space-y-4 lg:ml-20 w-full lg:w-auto">
+            <div className="space-y-4 lg:ml-20 w-full lg:w-auto max-w-2xl">
               <div className="mb-8 text-center lg:text-left">
                 <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-4 tracking-tight">
                   Hey there! <span className="text-primary"></span>
                 </h1>
-                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
+                <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed px-4 lg:px-0">
                   I'm Jade Chen, an MBA/MEng student at University of California, Berkeley. Welcome to my home page!
                 </p>
               </div>
               
-              {keywords.map((keyword, index) => (
-                <KeywordCard 
-                  key={keyword.title}
-                  title={keyword.title}
-                  content={keyword.content}
-                  delay={index * 100}
-                />
-              ))}
+              <div className="px-4 lg:px-0">
+                {keywords.map((keyword, index) => (
+                  <KeywordCard 
+                    key={keyword.title}
+                    title={keyword.title}
+                    content={keyword.content}
+                    delay={index * 100}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section className="mb-16">
-          <div className="bg-surface-elevated rounded-3xl p-8 shadow-[0_20px_50px_hsl(var(--shadow-soft))]">
-            <h2 className="text-2xl font-semibold text-foreground mb-6">Get in Touch</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+        <section className="mb-16 px-4 lg:px-0">
+          <div className="bg-surface-elevated rounded-3xl p-6 lg:p-8 shadow-[0_20px_50px_hsl(var(--shadow-soft))]">
+            <h2 className="text-2xl font-semibold text-foreground mb-6 text-center lg:text-left">Get in Touch</h2>
+            <div className="grid md:grid-cols-3 gap-4 lg:gap-6">
               {contacts.map((contact) => (
                 <a
                   key={contact.label}
@@ -99,7 +101,7 @@ const Index = () => {
                   <contact.icon size={20} className="text-muted-foreground group-hover:text-primary transition-colors" />
                   <div>
                     <p className="text-sm text-muted-foreground">{contact.label}</p>
-                    <p className="text-foreground font-medium">{contact.value}</p>
+                    <p className="text-foreground font-medium text-sm lg:text-base">{contact.value}</p>
                   </div>
                 </a>
               ))}
