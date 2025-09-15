@@ -33,7 +33,7 @@ export const codeProjects: CodeProject[] = [
   },
   {
     id: "side-proj",
-    title: "1nvestSense",
+    title: "Retail Investor Advisor",
     description: "A tool to empower retail investors with sharp, actionable market insights to make informed portfolio decisions.",
     coverImage: cover1s,
     date: "October 2024",

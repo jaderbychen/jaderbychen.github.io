@@ -21,9 +21,9 @@ const Header = () => {
               variant={location.pathname === "/code" ? "default" : "ghost"}
               size="sm"
               asChild
-              className="rounded-full"
+              className="rounded-full border-b-2 border-gray-200 bg-gray-200 hover:bg-gray-200 text-black"
             >
-              <Link to="/code" className="flex items-center gap-2">
+              <Link to="/code" className="flex items-center gap-2 text-black">
                 <Code size={18} />
                 Code for Fun
               </Link>
@@ -33,9 +33,9 @@ const Header = () => {
               variant={location.pathname === "/blog" ? "default" : "ghost"}
               size="sm"
               asChild
-              className="rounded-full"
+              className="rounded-full border-b-2 border-gray-200 bg-gray-200 hover:bg-gray-200 text-black"
             >
-              <Link to="/blog" className="flex items-center gap-2">
+              <Link to="/blog" className="flex items-center gap-2 text-black">
                 <BookOpen size={18} />
                 Blog
               </Link>

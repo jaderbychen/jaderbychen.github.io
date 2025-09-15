@@ -42,7 +42,7 @@ const KeywordCard = ({ title, content, delay = 0 }: KeywordCardProps) => {
         >
           <div className="text-muted-foreground leading-relaxed space-y-3">
             {content.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+              <p key={index} dangerouslySetInnerHTML={{ __html: paragraph }} />
             ))}
           </div>
         </div>
